@@ -10,9 +10,10 @@ public class keystroke {
     public void setnumKeys() {
         if (identity >= 'A' && identity <= 'Z') {
             numKeys = 2;
-            capitalize();
-        } else {
+        } else if (identity >= 'a' && identity <= 'z'){
             numKeys = 1;
+        } else if (identity >= '0' && identity <= '9'){
+            numKeys = 2;
         }
     }
 
@@ -20,8 +21,24 @@ public class keystroke {
         return numKeys;
     }
 
-    public void capitalize() {
-        if (numKeys == 2) {
+    public void format() {
+        if (identity >= 'A' && identity <= 'Z') {
+            // capital sign
+            rightBottom();
+            nextKey();
+        } else if (identity >= '0' && identity <= '9') {
+            // number sign
+            leftBottom();
+            rightBottom();
+            rightMiddle();
+            rightTop();
+            nextKey();
+        } else if (identity == '(' || identity == ')') {
+            rightMiddle();
+            nextKey();
+        } else if (identity == '/') {
+            rightTop();
+            rightMiddle();
             rightBottom();
             nextKey();
         }
@@ -29,93 +46,93 @@ public class keystroke {
 
     public void convert() {
             switch (identity) {
-                //region letters
-                case 'a', 'A' -> {
+                //region lowercase
+                case 'a' -> {
                     leftTop();
                     nextKey();
                     break;
                 }
-                case 'b', 'B' -> {
+                case 'b' -> {
                     leftTop();
                     leftMiddle();
                     nextKey();
                     break;
                 }
-                case 'c', 'C' -> {
+                case 'c' -> {
                     leftTop();
                     rightTop();
                     nextKey();
                     break;
                 }
-                case 'd', 'D' -> {
+                case 'd' -> {
                     leftTop();
-                    rightTop();
-                    rightMiddle();
-                    nextKey();
-                    break;
-                }
-                case 'e', 'E' -> {
-                    leftTop();
-                    rightMiddle();
-                    nextKey();
-                    break;
-                }
-                case 'f', 'F' -> {
-                    leftTop();
-                    leftMiddle();
-                    rightTop();
-                    nextKey();
-                    break;
-                }
-                case 'g', 'G' -> {
-                    leftTop();
-                    leftMiddle();
                     rightTop();
                     rightMiddle();
                     nextKey();
                     break;
                 }
-                case 'h', 'H' -> {
+                case 'e' -> {
                     leftTop();
-                    leftMiddle();
                     rightMiddle();
                     nextKey();
                     break;
                 }
-                case 'i', 'I' -> {
+                case 'f' -> {
+                    leftTop();
                     leftMiddle();
                     rightTop();
                     nextKey();
                     break;
                 }
-                case 'j', 'J' -> {
+                case 'g' -> {
+                    leftTop();
                     leftMiddle();
                     rightTop();
                     rightMiddle();
                     nextKey();
                     break;
                 }
-                case 'k', 'K' -> {
+                case 'h' -> {
+                    leftTop();
+                    leftMiddle();
+                    rightMiddle();
+                    nextKey();
+                    break;
+                }
+                case 'i' -> {
+                    leftMiddle();
+                    rightTop();
+                    nextKey();
+                    break;
+                }
+                case 'j' -> {
+                    leftMiddle();
+                    rightTop();
+                    rightMiddle();
+                    nextKey();
+                    break;
+                }
+                case 'k' -> {
                     leftTop();
                     leftBottom();
                     nextKey();
                     break;
                 }
-                case 'l', 'L' -> {
+                case 'l' -> {
                     leftTop();
                     leftMiddle();
                     leftBottom();
                     nextKey();
                     break;
                 }
-                case 'm', 'M' -> {
+                case 'm' -> {
                     leftTop();
                     leftBottom();
                     rightTop();
                     nextKey();
                     break;
                 }
-                case 'n', 'N' -> {
+                case 'n' -> {
                     leftTop();
                     leftBottom();
                     rightTop();
@@ -123,14 +140,14 @@ public class keystroke {
                     nextKey();
                     break;
                 }
-                case 'o', 'O' -> {
+                case 'o' -> {
                     leftTop();
                     leftBottom();
                     rightMiddle();
                     nextKey();
                     break;
                 }
-                case 'p', 'P' -> {
+                case 'p' -> {
                     leftTop();
                     leftMiddle();
                     leftBottom();
@@ -138,31 +155,8 @@ public class keystroke {
                     nextKey();
                     break;
                 }
-                case 'q', 'Q' -> {
+                case 'q' -> {
                     leftTop();
-                    leftMiddle();
-                    leftBottom();
-                    rightTop();
-                    rightMiddle();
-                    nextKey();
-                    break;
-                }
-                case 'r', 'R' -> {
-                    leftTop();
-                    leftMiddle();
-                    leftBottom();
-                    rightMiddle();
-                    nextKey();
-                    break;
-                }
-                case 's', 'S' -> {
-                    leftMiddle();
-                    leftBottom();
-                    rightTop();
-                    nextKey();
-                    break;
-                }
-                case 't', 'T' -> {
                     leftMiddle();
                     leftBottom();
                     rightTop();
@@ -170,14 +164,37 @@ public class keystroke {
                     nextKey();
                     break;
                 }
-                case 'u', 'U' -> {
+                case 'r' -> {
+                    leftTop();
+                    leftMiddle();
+                    leftBottom();
+                    rightMiddle();
+                    nextKey();
+                    break;
+                }
+                case 's' -> {
+                    leftMiddle();
+                    leftBottom();
+                    rightTop();
+                    nextKey();
+                    break;
+                }
+                case 't' -> {
+                    leftMiddle();
+                    leftBottom();
+                    rightTop();
+                    rightMiddle();
+                    nextKey();
+                    break;
+                }
+                case 'u' -> {
                     leftTop();
                     leftBottom();
                     rightBottom();
                     nextKey();
                     break;
                 }
-                case 'v', 'V' -> {
+                case 'v' -> {
                     leftTop();
                     leftMiddle();
                     leftBottom();
@@ -185,7 +202,7 @@ public class keystroke {
                     nextKey();
                     break;
                 }
-                case 'w', 'W' -> {
+                case 'w' -> {
                     leftMiddle();
                     rightTop();
                     rightMiddle();
@@ -193,7 +210,7 @@ public class keystroke {
                     nextKey();
                     break;
                 }
-                case 'x', 'X' -> {
+                case 'x' -> {
                     leftTop();
                     leftBottom();
                     rightTop();
@@ -201,7 +218,7 @@ public class keystroke {
                     nextKey();
                     break;
                 }
-                case 'y', 'Y' -> {
+                case 'y' -> {
                     leftTop();
                     leftBottom();
                     rightTop();
@@ -210,20 +227,307 @@ public class keystroke {
                     nextKey();
                     break;
                 }
-                case 'z', 'Z' -> {
+                case 'z' -> {
                     leftTop();
                     leftBottom();
                     rightMiddle();
                     rightBottom();
                     nextKey();
-                    break;
-                }
-                case ' ' -> {
-                    space();
                     break;
                 }
                 //endregion
 
+                //region uppercase & numbers
+                case 'A', '1' -> {
+                    format();
+                    leftTop();
+                    nextKey();
+                    break;
+                }
+                case 'B', '2' -> {
+                    format();
+                    leftTop();
+                    leftMiddle();
+                    nextKey();
+                    break;
+                }
+                case 'C', '3' -> {
+                    format();
+                    leftTop();
+                    rightTop();
+                    nextKey();
+                    break;
+                }
+                case 'D', '4' -> {
+                    format();
+                    leftTop();
+                    rightTop();
+                    rightMiddle();
+                    nextKey();
+                    break;
+                }
+                case 'E', '5' -> {
+                    format();
+                    leftTop();
+                    rightMiddle();
+                    nextKey();
+                    break;
+                }
+                case 'F', '6' -> {
+                    format();
+                    leftTop();
+                    leftMiddle();
+                    rightTop();
+                    nextKey();
+                    break;
+                }
+                case 'G', '7' -> {
+                    format();
+                    leftTop();
+                    leftMiddle();
+                    rightTop();
+                    rightMiddle();
+                    nextKey();
+                    break;
+                }
+                case 'H', '8' -> {
+                    format();
+                    leftTop();
+                    leftMiddle();
+                    rightMiddle();
+                    nextKey();
+                    break;
+                }
+                case 'I', '9' -> {
+                    format();
+                    leftMiddle();
+                    rightTop();
+                    nextKey();
+                    break;
+                }
+                case 'J', '0' -> {
+                    format();
+                    leftMiddle();
+                    rightTop();
+                    rightMiddle();
+                    nextKey();
+                    break;
+                }
+                case 'K' -> {
+                    format();
+                    leftTop();
+                    leftBottom();
+                    nextKey();
+                    break;
+                }
+                case 'L' -> {
+                    format();
+                    leftTop();
+                    leftMiddle();
+                    leftBottom();
+                    nextKey();
+                    break;
+                }
+                case 'M' -> {
+                    format();
+                    leftTop();
+                    leftBottom();
+                    rightTop();
+                    nextKey();
+                    break;
+                }
+                case 'N' -> {
+                    format();
+                    leftTop();
+                    leftBottom();
+                    rightTop();
+                    rightMiddle();
+                    nextKey();
+                    break;
+                }
+                case 'O' -> {
+                    format();
+                    leftTop();
+                    leftBottom();
+                    rightMiddle();
+                    nextKey();
+                    break;
+                }
+                case 'P' -> {
+                    format();
+                    leftTop();
+                    leftMiddle();
+                    leftBottom();
+                    rightTop();
+                    nextKey();
+                    break;
+                }
+                case 'Q' -> {
+                    format();
+                    leftTop();
+                    leftMiddle();
+                    leftBottom();
+                    rightTop();
+                    rightMiddle();
+                    nextKey();
+                    break;
+                }
+                case 'R' -> {
+                    format();
+                    leftTop();
+                    leftMiddle();
+                    leftBottom();
+                    rightMiddle();
+                    nextKey();
+                    break;
+                }
+                case 'S' -> {
+                    format();
+                    leftMiddle();
+                    leftBottom();
+                    rightTop();
+                    nextKey();
+                    break;
+                }
+                case 'T' -> {
+                    format();
+                    leftMiddle();
+                    leftBottom();
+                    rightTop();
+                    rightMiddle();
+                    nextKey();
+                    break;
+                }
+                case 'U' -> {
+                    format();
+                    leftTop();
+                    leftBottom();
+                    rightBottom();
+                    nextKey();
+                    break;
+                }
+                case 'V' -> {
+                    format();
+                    leftTop();
+                    leftMiddle();
+                    leftBottom();
+                    rightBottom();
+                    nextKey();
+                    break;
+                }
+                case 'W' -> {
+                    format();
+                    leftMiddle();
+                    rightTop();
+                    rightMiddle();
+                    rightBottom();
+                    nextKey();
+                    break;
+                }
+                case 'X' -> {
+                    format();
+                    leftTop();
+                    leftBottom();
+                    rightTop();
+                    rightBottom();
+                    nextKey();
+                    break;
+                }
+                case 'Y' -> {
+                    format();
+                    leftTop();
+                    leftBottom();
+                    rightTop();
+                    rightMiddle();
+                    rightBottom();
+                    nextKey();
+                    break;
+                }
+                case 'Z' -> {
+                    format();
+                    leftTop();
+                    leftBottom();
+                    rightMiddle();
+                    rightBottom();
+                    nextKey();
+                    break;
+                }
+                //endregion &
+
+                //region punctuation
+                case ',' -> {
+                    leftMiddle();
+                    break;
+                }
+                case ';' -> {
+                    leftBottom();
+                    leftMiddle();
+                    break;
+                }
+                case ':' -> {
+                    leftMiddle();
+                    rightMiddle();
+                    break;
+                }
+                case '.' -> {
+                    leftMiddle();
+                    rightMiddle();
+                    rightBottom();
+                    break;
+                }
+                case '!' -> {
+                    leftMiddle();
+                    rightMiddle();
+                    leftBottom();
+                    break;
+                }
+                case '(' -> {
+                    format();
+                    leftTop();
+                    leftMiddle();
+                    rightBottom();
+                    break;
+                }
+                case ')' -> {
+                    format();
+                    rightMiddle();
+                    rightTop();
+                    leftBottom();
+                    break;
+                }
+                case '?' -> {
+                    leftMiddle();
+                    leftBottom();
+                    rightBottom();
+                    break;
+                }
+                case '/' -> {
+                    rightTop();
+                    leftBottom();
+                    break;
+                } case '$' -> {
+                    format();
+                    rightTop();
+                    leftMiddle();
+                    leftBottom();
+                    break;
+                } case '\'' -> {
+                    leftBottom();
+                    break;
+                }
+                case '-' -> {
+                    leftBottom();
+                    rightBottom();
+                    break;
+                }
+                //endregion
+
+                case ' ' -> {
+                    space();
+                    break;
+                }
+
+                // if character not found - block
                 default -> {
                     rightTop();
                     rightMiddle();
@@ -269,6 +573,11 @@ public class keystroke {
 
     public void nextKey() {
         System.out.print("Next key: ");
+    }
+
+    public static void lineSpacer() {
+        System.out.println();
+        System.out.print("New line start: ");
     }
     //endregion
 
